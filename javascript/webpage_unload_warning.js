@@ -1,3 +1,7 @@
 window.addEventListener('beforeunload', (event) => {
-    event.returnValue = 'Are you sure you want to leave Webui?';
+  if (document.body.innerHTML.includes('Reloading...')) {
+    return;
+  }
+
+  event.returnValue = 'Are you sure you want to leave Webui?';
 });
