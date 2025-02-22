@@ -1,7 +1,7 @@
-window.addEventListener('beforeunload', (event) => {
-  if (document.body.innerHTML.includes('Reloading...')) {
-    return;
+window.addEventListener('beforeunload',e=> {
+  let h1 = document.querySelector('body > h1')
+  if (!h1 || 'Reloading...' !== h1.innerText) {
+    e.preventDefault();
+    e.returnValue = 'Are you sure you want to leave Webui?';
   }
-
-  event.returnValue = 'Are you sure you want to leave Webui?';
 });
